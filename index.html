@@ -4,10 +4,73 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+         var min = 60;
+         var sec = 60;
         window.onload = function(){
-            
+            console.log(window.innerHeight - $("header").innerHeight - $("footer").innerHeight);
             $("section").height(window.innerHeight - $("header").innerHeight() - $("footer").innerHeight());
+           
         }
+        function animacja(){
+            
+            var divAnim = document.createElement("div");
+            divAnim.style = "width: 100px; heigth:100px; transition: 1s; background-color:red;";
+            divAnim.innerText = "Moja mama"
+            $("#dwujka").append(divAnim);
+
+
+            setInterval(()=>{
+                divAnim.style.width = (Math.random() * (200 - 10) + 10)+"px";
+            },1000);
+            setInterval(()=>{
+                divAnim.style.height = (Math.random() * (200 - 10) + 10)+"px";
+            },1000);
+            
+                
+            
+        }
+        function button(but){
+            switch(but){
+               case "Oblicanie":
+            let a = document.Oblicanie.A.value;
+			let b = document.Oblicanie.B.value;
+			let c = document.Oblicanie.C.value;
+
+                
+
+			let wynik = Math.pow(a,b)- c;
+			document.getElementsByClassName('box')[0].innerHTML = wynik + " [J]";
+                    break;
+                case "anim":
+                    var button = document.createElement("button");
+                    button.setAttribute("onclick","animacja();this.remove();")
+                    button.innerText = "uruchom aniamcje";
+                    $("#jedynka").append(button);
+                    break;
+
+                    case "zegar":
+                    setInterval(()=>{
+                        $("#zegar").html(`${min}:${sec}`);
+                        if(sec==0){
+                            min--;
+                            sec=60;
+                        }
+                        if(min==0){
+                            sec==0;
+                            $("#zegar").html("ZEGAR");
+                            alert("Minutnik ukończył odliczanie");
+                            return;
+                        }
+                        sec--;
+                    },1000);
+                    break;
+
+            }
+
+                }
+
+
+        
     </script>
     <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
@@ -19,22 +82,41 @@
 <body>
 <header>
    <div id="slider">Slider</div>
-   <div id="animacje">Animacje</div>
-   <div id="obliczenia">Obliczenia</div>
+   <div id="animacje" onclick="button('anim');">ANIMACJE</div>
+   <div id="obliczenia " onclick="button('Oblicanie');">Obliczanie</div>
    <div id="obiekt">Obiekt</div>
-   <div id="zegar">Zegar</div>
+   <div id="zegar" onclick="button('zegar');">Zegar</div>
+   
 </header>
+
+
+
+
+
+
+
     
     
 <section>
 
     <div id="jedynka">
+        <legend>formularz</legend>
+        <button onclick="Oblicanie();">Oblicz</button>
+        <form name="Oblicanie">
+            A: <input type="number" name="A">
+            <br></br>
+            B: <input type="number" name="B">
+            <br></br>
+            C: <input type="number"  name="C">
+            <br></br>
+        </form>
         
     </div>
 
     <div id="dwujka">
-
+        <div id="wynik" class="box"></div>
     </div>
+</header>
 </section>
 
     <footer>
