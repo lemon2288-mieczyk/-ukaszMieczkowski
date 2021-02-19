@@ -1,0 +1,53 @@
+header{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+#slider{
+    width: 20%;
+    float: left;
+    font-size: large;
+}
+#animacje{
+    width: 20%;
+    float: left;
+    font-size: large;
+}
+#obliczenia{
+    width: 20%;
+    float: left;
+    font-size: large;
+}
+#obiekt{
+    width: 20%;
+    float: left;
+    font-size: large;
+}
+#zagar{
+    width: 20%;
+    float : left;
+    font-size: large;
+}
+#section{
+    width: 100%;
+    min-height: 100%;
+    font-size: large;
+}
+#jedynka{
+    height: 100%;
+    width: 30%;
+    float: left;
+
+}
+#dwujka{
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+footer{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    font-size: large;
+}
+
