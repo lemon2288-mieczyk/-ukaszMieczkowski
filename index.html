@@ -5,17 +5,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
          var min = 60;
-         var sec = 60;
+         var sec = 60; 
+         
         window.onload = function(){
             console.log(window.innerHeight - $("header").innerHeight - $("footer").innerHeight);
             $("section").height(window.innerHeight - $("header").innerHeight() - $("footer").innerHeight());
            
         }
+        
+        animacja();
+        var liczba = 0;
+        function animacja(){
+            var i ;
+            var x =document .getElementsByClassName("SliderZdj");
+            for (i = 0; i < x.length; i++){
+                x[i].style.display = "none";
+            }
+            liczba++;
+             if (liczba > x.length) {
+                 liczba = 1 
+             }
+             x[liczba - 1].style.display = "block";
+             setTimeout(animacja, 2000);
+        }
+
         function animacja(){
             
             var divAnim = document.createElement("div");
             divAnim.style = "width: 100px; heigth:100px; transition: 1s; background-color:red;";
-            divAnim.innerText = "Moja mama"
+            divAnim.innerText = "ANIMACJA"
             $("#dwujka").append(divAnim);
 
 
@@ -32,6 +50,9 @@
         function button(but){
             switch(but){
                case "Oblicanie":
+
+
+               
             let a = document.Oblicanie.A.value;
 			let b = document.Oblicanie.B.value;
 			let c = document.Oblicanie.C.value;
@@ -39,7 +60,14 @@
                 
 
 			let wynik = Math.pow(a,b)- c;
-			document.getElementsByClassName('box')[0].innerHTML = wynik + " [J]";
+			document.getElementsByClassName('box')[0].innerHTML = wynik + " <br>";
+
+            wynik =  a / b- a* c;
+			document.getElementsByClassName('box')[0].innerHTML += wynik  + " <br>";
+
+            wynik = a/b +b/a ;
+			document.getElementsByClassName('box')[0].innerHTML += wynik  ;
+            
                     break;
                 case "anim":
                     var button = document.createElement("button");
@@ -83,25 +111,16 @@
 <header>
    <div id="slider">Slider</div>
    <div id="animacje" onclick="button('anim');">ANIMACJE</div>
-   <div id="obliczenia " onclick="button('Oblicanie');">Obliczanie</div>
+   <div id="obliczenia" onclick="button('Oblicanie');">Obliczanie</div>
    <div id="obiekt">Obiekt</div>
    <div id="zegar" onclick="button('zegar');">Zegar</div>
    
 </header>
-
-
-
-
-
-
-
-    
-    
 <section>
 
     <div id="jedynka">
-        <legend>formularz</legend>
-        <button onclick="Oblicanie();">Oblicz</button>
+        <legend><h1>formularz</h1></legend>
+        
         <form name="Oblicanie">
             A: <input type="number" name="A">
             <br></br>
@@ -111,10 +130,16 @@
             <br></br>
         </form>
         
+        <div id="wynik" class="box"></div>
+        
     </div>
 
     <div id="dwujka">
-        <div id="wynik" class="box"></div>
+        <div class="Sl">
+                <img class="SliderZdj" src="zdj/1.jpg">
+                <img class="SliderZdj" src="zdj/2.jpg">
+                <img class="SliderZdj" src="zdj/3.jpg">
+        </div>
     </div>
 </header>
 </section>

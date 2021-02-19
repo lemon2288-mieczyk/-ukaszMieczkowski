@@ -2,6 +2,7 @@ header{
     height: 50px;
     width: 100%;
     text-align: center;
+    background-color: coral;
 }
 #slider{
     float: left;
@@ -16,7 +17,7 @@ header{
 #obliczenia{
     float: left;
     width: 20%;
-    font-size: large;
+    
 }
 #obiekt{
     float: left;
@@ -54,12 +55,18 @@ footer{
     background: green;
 }
 #wynik{
-    width: 200px;
+    width: 250px;
     min-height: 100px;
     font-family: aril;
     font-size: 26px;
     border: 2px solid red;
     border-radius: 10px;
     float: left;
+}
+
+#SliderZdj{
+    display:  none;
+    width: 900px;
+    height: 500px;
 }
 
